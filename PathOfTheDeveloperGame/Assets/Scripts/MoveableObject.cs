@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveableObject : MonoBehaviour
 {
     private bool canRotate = false;
-    private const float rotationFactor = 1.0f;
+    private const float rotationFactor = 2.0f;
 
     private Vector3 mOffset;
 

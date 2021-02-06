@@ -81,11 +81,24 @@ public class PlayerController : MonoBehaviour
         angeloStartPosition = angelo.transform.position;
         moveableObjects = GameObject.FindGameObjectsWithTag("MoveableObject");
         gameObject.transform.position = Vector3.zero;
+        setGameState(false);
     }
 
     private void changeGameState()
     {
         if (!gameIsActive)
+        {
+            setGameState(true);
+        }
+        else
+        {
+            setGameState(false);
+        }
+    }
+
+    private void setGameState(bool state)
+    {
+        if (state)
         {
             angelo.isStatic = false;
             angelo.GetComponent<Rigidbody>().isKinematic = false;
