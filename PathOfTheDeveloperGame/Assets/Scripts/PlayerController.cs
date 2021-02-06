@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     //Set up keybinds
     [SerializeField] private const string speedUpCam = "left shift";
     [SerializeField] private const KeyCode startGame = KeyCode.Space;
+    [SerializeField] private const KeyCode TESTLOADSCENE = KeyCode.F;
 
     private int moveSpeed;
     private const int moveSpeedSlow = 5;
@@ -30,6 +31,9 @@ public class PlayerController : MonoBehaviour
     //Save is game is active
     private bool gameIsActive = false;
 
+    //Save a reference to the UI Text.
+    [SerializeField] private GameActiveText text;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,11 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     { 
         SceneManager.sceneLoaded += onLoadNewScene;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= onLoadNewScene;
     }
 
     // Update is called once per frame
@@ -71,6 +80,7 @@ public class PlayerController : MonoBehaviour
         angelo = GameObject.FindGameObjectWithTag("Angelo");
         angeloStartPosition = angelo.transform.position;
         moveableObjects = GameObject.FindGameObjectsWithTag("MoveableObject");
+        gameObject.transform.position = Vector3.zero;
     }
 
     private void changeGameState()
@@ -84,6 +94,7 @@ public class PlayerController : MonoBehaviour
                 obj.GetComponent<MoveableObject>().enabled = false;
             }
             gameIsActive = true;
+            text.changeGameState(gameIsActive);
         }
         else
         {
@@ -95,6 +106,7 @@ public class PlayerController : MonoBehaviour
                 obj.GetComponent<MoveableObject>().enabled = true;
             }
             gameIsActive = false;
+            text.changeGameState(gameIsActive);
         }
     }
 }
