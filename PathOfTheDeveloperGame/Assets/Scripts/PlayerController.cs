@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
-    private Vector2 lowerBound;
-    private Vector2 upperBound;
+    public Vector2 lowerBound;
+    public Vector2 upperBound;
 
     //Set up keybinds
     private const string speedUpCam = "left shift";

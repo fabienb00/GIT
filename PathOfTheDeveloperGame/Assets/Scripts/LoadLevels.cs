@@ -8,7 +8,7 @@ public class LoadLevels : MonoBehaviour
 
     //Always make the beginning level the one at index 0.
     [SerializeField] private string[] levels;
-    private string mainMenu = "MainMenu";
+    private string mainMenu = "menu";
 
     public void loadNextLevel()
     {
@@ -20,5 +20,10 @@ public class LoadLevels : MonoBehaviour
     public void loadMainMenu()
     {
         LoadScene.loadScene(mainMenu);
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
     }
 }
