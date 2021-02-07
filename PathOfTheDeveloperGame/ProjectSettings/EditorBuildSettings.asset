@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Test Scenes/ChrisTestingScene.unity
-    guid: 2fb056e04f10ee247b6dc745d9da93b4
+    path: "Assets/\xA8menu/menu.unity"
+    guid: 98ce55fb29b90f14c835d9e696a6454a
   - enabled: 1
-    path: Assets/Scenes/Test Scenes/LoadTestScene1.unity
-    guid: a72dfc27845d0d94095a8b4a9bd85b6d
+    path: Assets/Scenes/ActualLevels/Level1.unity
+    guid: 93cbf8d340002ab41a99b9e02a11ab53
+  - enabled: 1
+    path: Assets/Scenes/ActualLevels/Level2.unity
+    guid: 8c0183b1c6d87b74bba225cf1083d3ca
+  - enabled: 1
+    path: Assets/Scenes/ActualLevels/Level3.unity
+    guid: 795017f9f93f0434c837975e7b9740a4
+  - enabled: 1
+    path: Assets/Scenes/ActualLevels/Level4.unity
+    guid: 9baef8060585ef042b157ea3c67c0a2b
   m_configObjects: {}
