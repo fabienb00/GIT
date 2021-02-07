@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
-    [SerializeField] private Vector2 lowerBound;
-    [SerializeField] private Vector2 upperBound;
+    private Vector2 lowerBound;
+    private Vector2 upperBound;
 
     //Set up keybinds
-    [SerializeField] private const string speedUpCam = "left shift";
-    [SerializeField] private const KeyCode startGame = KeyCode.Space;
-    [SerializeField] private const KeyCode TESTLOADSCENE = KeyCode.F;
+    private const string speedUpCam = "left shift";
+    private const KeyCode startGame = KeyCode.Space;
+    private const KeyCode TESTLOADSCENE = KeyCode.F;
 
     private int moveSpeed;
     private const int moveSpeedSlow = 5;
@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = this.gameObject.GetComponent<Rigidbody>();
         moveSpeed = moveSpeedSlow;
+        lowerBound = GameObject.Find("LowerBoundPoint").transform.position;
+        upperBound = GameObject.Find("UpperBoundPoint").transform.position;
     }
 
     private void OnEnable()
@@ -81,6 +83,8 @@ public class PlayerController : MonoBehaviour
         angeloStartPosition = angelo.transform.position;
         moveableObjects = GameObject.FindGameObjectsWithTag("MoveableObject");
         gameObject.transform.position = Vector3.zero;
+        lowerBound = GameObject.Find("LowerBoundPoint").transform.position;
+        upperBound = GameObject.Find("UpperBoundPoint").transform.position;
         setGameState(false);
     }
 

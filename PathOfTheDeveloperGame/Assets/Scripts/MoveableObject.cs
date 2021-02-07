@@ -11,6 +11,18 @@ public class MoveableObject : MonoBehaviour
 
     private float mZCoord;
 
+    private bool holdColour;
+
+    private MeshRenderer mRend;
+    private Color baseColour;
+    [SerializeField] private Color changeColour;
+
+    private void Start()
+    {
+        mRend = gameObject.GetComponent<MeshRenderer>();
+        baseColour = mRend.material.color;
+    }
+
     private void OnMouseDown()
     {
         if (enabled)
@@ -19,6 +31,7 @@ public class MoveableObject : MonoBehaviour
             mOffset = gameObject.transform.position - GetMouseWorldPos();
 
             canRotate = true;
+            holdColour = true;
         }
         
     }
@@ -28,8 +41,25 @@ public class MoveableObject : MonoBehaviour
         if (enabled)
         {
             canRotate = false;
+            holdColour = false;
+            mRend.material.color = baseColour;
         }
         
+    }
+
+    private void OnMouseOver()
+    {
+        if(!holdColour) mRend.material.color = changeColour;
+    }
+
+    private void OnMouseEnter()
+    {
+        //mRend.material.color = changeColour;
+    }
+
+    private void OnMouseExit()
+    {
+        if(!holdColour) mRend.material.color = baseColour;
     }
 
     private Vector3 GetMouseWorldPos()

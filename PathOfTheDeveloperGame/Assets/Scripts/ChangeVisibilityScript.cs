@@ -8,7 +8,7 @@ public class ChangeVisibilityScript : MonoBehaviour
     //This script changes visibility of the object such that it can be adapted during runtime and is automatically invisbile when newly loaded.
     public void Awake()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -23,7 +23,6 @@ public class ChangeVisibilityScript : MonoBehaviour
 
     private void onLoadNewScene(Scene scene, LoadSceneMode mode)
     {
-        gameObject.SetActive(false);
     }
 
     public void makeSelfInvisible()

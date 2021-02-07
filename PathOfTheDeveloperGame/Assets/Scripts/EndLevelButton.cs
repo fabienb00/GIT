@@ -9,6 +9,10 @@ public class EndLevelButton : MonoBehaviour
 
     private void Start()
     {
+        winScreen = GameObject.Find("WinScreen").GetComponent<ChangeVisibilityScript>();
+        winScreen.makeSelfInvisible();
+        loadScreen = GameObject.Find("LoadScreen").GetComponent<ChangeVisibilityScript>();
+        loadScreen.makeSelfInvisible();
     }
 
     private void OnCollisionEnter(Collision collision)
